@@ -1,4 +1,4 @@
 ﻿Name,Quantity,Component
-"Uout1, Uout",2," IR sensor"
+"Uout, Uin",2," IR sensor"
 "U2",1,"MCP23008-based, 32 (0x20) LCD 16 x 2 (I2C)"
 "U1",1," Arduino Uno R3"
