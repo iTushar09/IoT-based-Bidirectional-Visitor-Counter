@@ -19,7 +19,7 @@ This project is a DIY people counter system using **Arduino** and **IR sensors**
 
 ## 🔌 Circuit Diagram
 
-![Circuit View](sandbox:/mnt/data/Circuit%20view.png)
+![Circuit View]([sandbox:/mnt/data/Circuit%20view.png](https://github.com/iTushar09/IoT-based-Bidirectional-Visitor-Counter/blob/main/Circuit%20view.png))
 
 This diagram shows how to connect:
 
