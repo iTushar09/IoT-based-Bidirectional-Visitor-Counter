@@ -19,7 +19,7 @@ This project is a DIY people counter system using **Arduino** and **IR sensors**
 
 ## 🔌 Circuit Diagram
 
-![Circuit View](<Circuit View.png>)
+![Circuit View](<Circuit view.png>)
 
 This diagram shows how to connect:
 
