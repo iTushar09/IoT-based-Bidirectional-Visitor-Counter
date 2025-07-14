@@ -1,0 +1,9 @@
+﻿Name,Quantity,Component
+"U1",1," Arduino Uno R3"
+"U2",1," LCD 16 x 2"
+"Rpot1",1,"250 kΩ Potentiometer"
+"R1",1,"220 Ω Resistor"
+"D2",1,"Red LED"
+"R2",1,"1 kΩ Resistor"
+"PIROUTER",1,"-116.43300129685474 , -181.58345398869653 , -176.05927032144518  PIR Sensor"
+"PIRINNER",1,"-7.210618579717561 , -205.3468132553561 , -161.237443240914 , -77.99548628766945  PIR Sensor"
