@@ -1,5 +1,5 @@
 #include <LiquidCrystal.h>
-
+// People Counter Project - Made by Tushar Chaudhari
 const int led = 13;
 const int inr = 7;  // Input sensor for people entering
 const int outr = 8; // Output sensor for people exiting
@@ -12,8 +12,10 @@ void setup() {
   pinMode(inr, INPUT);
   pinMode(outr, INPUT);
   lcd.begin(16, 2);
-  lcd.print("People Counter"); // Initial display
-  delay(1000);
+    lcd.print(" WELCOME TO MY ");
+  lcd.setCursor(0, 2);
+    lcd.print("   PROJECT  ");  // Initial display
+  delay(5000);
   lcd.clear();
 }
 
@@ -21,6 +23,7 @@ void loop() {
   // Check if someone is entering
   if (digitalRead(inr) == HIGH) { // Assuming HIGH when detected
     ppl++;
+
     lcd.setCursor(0, 0);
     lcd.print("ENTER PEOPLE  "); // Spaces to clear previous text
     lcd.setCursor(0, 1);
@@ -58,3 +61,5 @@ void loop() {
 
   delay(100); // A small delay to keep the loop from running too fast
 }
+
+
