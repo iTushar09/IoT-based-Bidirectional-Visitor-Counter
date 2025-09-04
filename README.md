@@ -23,7 +23,7 @@ A homemade electronic counter using **Arduino** and **IR sensors** to track peop
 
 ## 🔗 Wiring Configuration
 
-![Circuit View](Circuit view.png)
+![Circuit View](<Circuit view.png>)
 
 ### Connection Details:
 - **IR Sensor 1 (Entry)** → Digital Pin (configurable)
