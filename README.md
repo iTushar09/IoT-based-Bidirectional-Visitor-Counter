@@ -2,6 +2,13 @@
 
 A homemade electronic counter using **Arduino** and **IR sensors** to track people walking in and out of spaces. It knows whether someone is coming or going and shows the current number of people on an LCD display in real-time.
 
+
+## 🚀 Live Demo
+
+You can test the live application here:
+**[Visitor Counter](https://www.tinkercad.com/things/aEyK2DhUCYr-iot-based-bidirectional-visitor-counterlbar?sharecode=WiFSPDXeyaUoRhwud1rgw_3BQZmOxf6xJ0v3UBx9iDc)**
+
+
 ## ✨ Key Features
 
 - **Bidirectional Detection**: Distinguishes between entry and exit movements
