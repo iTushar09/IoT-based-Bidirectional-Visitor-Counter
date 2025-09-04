@@ -84,3 +84,7 @@ void showCount(const char* action) {
 
   digitalWrite(ledPin, LOW);         // LED OFF during events
 }
+// ==============================
+// People Counter Project
+// Author: Tushar Chaudhari
+// ==============================
