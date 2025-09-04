@@ -6,7 +6,7 @@ A homemade electronic counter using **Arduino** and **IR sensors** to track peop
 ## 🚀 Live Simulation
 
 Click below to test the project:
-**[Visitor Counter](https://www.tinkercad.com/things/aEyK2DhUCYr-iot-based-bidirectional-visitor-counterlbar?sharecode=WiFSPDXeyaUoRhwud1rgw_3BQZmOxf6xJ0v3UBx9iDc)**
+**[ Hands-On Demo](https://www.tinkercad.com/things/aEyK2DhUCYr-iot-based-bidirectional-visitor-counterlbar?sharecode=WiFSPDXeyaUoRhwud1rgw_3BQZmOxf6xJ0v3UBx9iDc)**
 
 
 ## ✨ Key Features
