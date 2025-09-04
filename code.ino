@@ -1,65 +1,86 @@
-#include <LiquidCrystal.h>
-// People Counter Project - Made by Tushar Chaudhari
-const int led = 13;
-const int inr = 7;  // Input Reading sensor for people entering
-const int outr = 8; // Output Reading sensor for people exiting
-int ppl = 0;        // Current number of people
+#include <LiquidCrystal.h>  // Library for LCD control
 
+// Pin definitions
+const int ledPin = 13;      // LED for system status
+const int entrySensor = 7;  // Entry sensor pin
+const int exitSensor = 8;   // Exit sensor pin
+
+int peopleCount = 0;        // Tracks number of people inside
+
+// Set up LCD: RS, E, D4, D5, D6, D7
 LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
 
 void setup() {
-  pinMode(led, OUTPUT);
-  pinMode(inr, INPUT);
-  pinMode(outr, INPUT);
-  lcd.begin(16, 2);
-    lcd.print(" WELCOME TO MY ");
-  lcd.setCursor(0, 2);
-    lcd.print("   PROJECT  ");  // Initial display
-  delay(5000);
-  lcd.clear();
+  //Pin mode
+  pinMode(ledPin, OUTPUT);          // Set LED pin as OUTPUT
+  pinMode(entrySensor, INPUT);      // Set entry sensor as INPUT
+  pinMode(exitSensor, INPUT);       // Set exit sensor as INPUT
+
+ // LCD initialization
+  lcd.begin(16, 2);                 // Initialize LCD (16x2)
+
+// Welcome message
+  lcd.print("WELCOME TO MY");       // Welcome message (line 1)
+  lcd.setCursor(0, 1);              // Move to second row [Row index starts at 0, so second row is (0,1)]
+  lcd.print("PEOPLE COUNTER");      // Welcome message (line 2)
+  delay(3000);                      // Show message (3 seconds)
+  lcd.clear();                      // Clear LCD
 }
 
 void loop() {
-  // Check if someone is entering
-  if (digitalRead(inr) == HIGH) { // Assuming HIGH when detected
-    ppl++;
-
-    lcd.setCursor(0, 0);
-    lcd.print("ENTER PEOPLE  "); // Spaces to clear previous text
-    lcd.setCursor(0, 1);
-    lcd.print("Count: ");
-    lcd.print(ppl);
-    digitalWrite(led, LOW); // Turn LED off when someone enters
-    delay(1000); // Small delay to avoid multiple counts
-    lcd.clear();
+  // ========================================================//
+  // If a person enters (entrySensor triggered)
+  // ========================================================//
+  if (digitalRead(entrySensor) == HIGH) {
+    peopleCount++;                    // Increase count
+    showCount("Entered");             // Show on LCD
+    digitalWrite(ledPin, LOW);        // LED OFF during change
+    delay(1000);                      // Wait to avoid repeat counting
+    lcd.clear();                      // Clear LCD for next event
   }
-
-  // Check if someone is exiting
-  if (digitalRead(outr) == HIGH) { // Assuming HIGH when detected
-    if (ppl > 0) { // Ensure people count doesn't go negative
-      ppl--;
+  
+  // ========================================================//
+  // If a person exits (exitSensor triggered)
+  // ========================================================//
+  
+  if (digitalRead(exitSensor) == HIGH) {
+    if (peopleCount > 0) {            // Prevent negative count
+      peopleCount--;
     }
-    lcd.setCursor(0, 0);
-    lcd.print("EXIT PEOPLE   "); // Spaces to clear previous text
-    lcd.setCursor(0, 1);
-    lcd.print("Count: ");
-    lcd.print(ppl);
-    digitalWrite(led, LOW); // Turn LED off when someone exits
-    delay(1000); // Small delay to avoid multiple counts
+    showCount("Exited");              // Show on LCD
+    digitalWrite(ledPin, LOW);        // LED OFF during change
+    delay(1000);
     lcd.clear();
   }
-
-  // Default display when no one is entering or exiting
-  if (digitalRead(inr) == LOW && digitalRead(outr) == LOW) {
+  
+  // ========================================================//
+  // If sensors are idle, show current count (no one detected)
+  // ========================================================//
+  
+  if (digitalRead(entrySensor) == LOW && digitalRead(exitSensor) == LOW) {
     lcd.setCursor(0, 0);
     lcd.print("Current People:");
     lcd.setCursor(0, 1);
-    lcd.print(ppl);
-    lcd.print("          "); // Clear remaining characters
-    digitalWrite(led, HIGH); // Turn LED on when idle
+    lcd.print(peopleCount);
+    lcd.print("   ");                 // Clear old digits if needed
+    digitalWrite(ledPin, HIGH);       // LED ON when idle
   }
 
-  delay(100); // A small delay to keep the loop from running too fast
+  delay(100);                         // Loop pause or Small delay for stability
 }
 
+// ========================================================//
+// Helper function to show entry/exit events on LCD
+// ========================================================//
 
+void showCount(const char* action) {
+  lcd.setCursor(0, 0);
+  lcd.print(action);
+  lcd.print(" Person");
+  
+  lcd.setCursor(0, 1);
+  lcd.print("Count: ");
+  lcd.print(peopleCount);
+
+  digitalWrite(ledPin, LOW);         // LED OFF during events
+}
