@@ -1,8 +1,8 @@
 #include <LiquidCrystal.h>
 // People Counter Project - Made by Tushar Chaudhari
 const int led = 13;
-const int inr = 7;  // Input sensor for people entering
-const int outr = 8; // Output sensor for people exiting
+const int inr = 7;  // Input Reading sensor for people entering
+const int outr = 8; // Output Reading sensor for people exiting
 int ppl = 0;        // Current number of people
 
 LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
